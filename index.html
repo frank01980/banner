@@ -175,6 +175,21 @@ footer{border-top:1px solid var(--line)}
 .popup.finished .done{display:flex;animation:popIn .3s ease}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fill{from{width:0}to{width:100%}}
+
+/* Refined mobile-friendly verification popup, matched to the site's neon theme */
+.popup-bg{padding:16px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.popup{max-width:420px;max-height:calc(100dvh - 32px);overflow-y:auto;padding:32px 22px 24px;border-radius:24px;background:linear-gradient(155deg,#19191e 0%,#0b0b0d 85%);border:1px solid #35353b;box-shadow:-3px -3px 0 var(--cyan),3px 3px 0 var(--pink),0 24px 80px #000b;gap:14px}
+.popup .done{width:100%;gap:15px}
+.popup .rocket{width:56px;height:56px;border-radius:17px;background:linear-gradient(135deg,var(--cyan),var(--pink));box-shadow:0 0 25px #25f4ee25}
+.popup .rocket svg{width:29px;height:29px}
+.popup h2{font-size:clamp(20px,5.5vw,25px);line-height:1.25;letter-spacing:-.6px}
+.popup p{font-size:14px;line-height:1.65;max-width:340px}
+.popup .captcha-box{width:100%;min-height:72px;display:flex;justify-content:center;align-items:center;overflow:visible;margin:5px auto}
+.popup .ok{width:100%;min-height:50px;background:var(--pink-button);color:white;box-shadow:-3px -3px 0 var(--cyan),3px 3px 0 #ff4772}
+.popup .close{top:8px;right:8px;background:#ffffff0b;color:#dedee4;width:36px;height:36px}
+.popup .follow{font-size:13px}
+@media(max-width:480px){.popup-bg{padding:12px}.popup{padding:30px 16px 22px;border-radius:20px}.popup .captcha-box{max-width:100%}}
+
 /* the download buttons bounce when someone clicks "Get the app" */
 .downloads.flash a{animation:flash .6s ease 2}
 @keyframes flash{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
@@ -499,10 +514,10 @@ footer{border-top:1px solid var(--line)}
   </span>
 
   <!-- ✏️ POP-UP TITLE -->
-  <h2 id="popup-title">High traffic alert!</h2>
+  <h2 id="popup-title">Unlock your banner</h2>
 
   <!-- ✏️ POP-UP TEXT -->
-  <p>Due to high traffic right now, we need to make sure you're a real person! Complete the quick check below to continue.</p>
+  <p>Complete the step below to continue to your banner. You can close this window anytime.</p>
 
   <!-- 🔒 CAPTCHA GOES HERE -->
   <div class="captcha-box" data-captcha-enable="true"></div>
