@@ -176,6 +176,9 @@ footer{border-top:1px solid var(--line)}
 .popup.finished .done{display:flex;animation:popIn .3s ease}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fill{from{width:0}to{width:100%}}
+/* the download buttons bounce when someone clicks "Get the app" */
+.downloads.flash a{animation:flash .6s ease 2}
+@keyframes flash{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes popIn{from{opacity:0;transform:scale(.9) translateY(10px)}to{opacity:1;transform:none}}
 
@@ -530,6 +533,17 @@ const SETTINGS = {
 // (you don't need to change anything below this line)
 document.querySelectorAll("[data-app-name]").forEach(el => el.textContent = SETTINGS.appName);
 document.querySelectorAll("[data-link]").forEach(el => el.href = SETTINGS[el.dataset.link]);
+
+// "Get the app" buttons: scroll to the App Store / Google Play buttons (in the middle of the screen)
+const downloads = document.getElementById("download");
+document.querySelectorAll('a[href="#download"]').forEach(el => el.addEventListener("click", e => {
+  e.preventDefault();
+  downloads.scrollIntoView({ behavior: "smooth", block: "center" });
+  setTimeout(() => {
+    downloads.classList.remove("flash"); downloads.offsetWidth;
+    downloads.classList.add("flash");
+  }, 600);
+}));
 
 // pop-up
 const popup = document.getElementById("popup");
